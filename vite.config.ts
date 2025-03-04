@@ -2,8 +2,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import { resolve } from 'path';
-import tailwindcss from '@tailwindcss/postcss';
+import tailwindpostcss from '@tailwindcss/postcss';
 import autoprefixer from 'autoprefixer';
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [
@@ -11,14 +12,16 @@ export default defineConfig({
     dts({
       insertTypesEntry: true,
     }),
+    tailwindcss()
   ],
   css: {
     postcss: {
       plugins: [
-        tailwindcss,
+        tailwindpostcss,
         autoprefixer
       ]
-    }
+    },
+    devSourcemap: true, // Enable source maps in development
   },
   build: {
     lib: {
@@ -35,7 +38,7 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
         },
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') {
+          if (assetInfo.name === 'my-ui-library.css') {
             return 'style.css'; // Rename the main CSS file
           }
           return assetInfo.name || '';

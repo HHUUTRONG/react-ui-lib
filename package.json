@@ -1,7 +1,7 @@
 {
-  "name": "@react-ui-lib/core",
+  "name": "my-ui-lib-react",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.3",
   "type": "module",
   "main": "./dist/my-ui-library.cjs",
   "module": "./dist/my-ui-library.js",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@tailwindcss/postcss": "^4.0.9",
+    "@tailwindcss/vite": "^4.0.9",
     "@types/node": "^22.13.9",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
@@ -38,6 +39,7 @@
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.9",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",
@@ -46,5 +48,8 @@
   "peerDependencies": {
     "react": ">=18.0.0 <20.0.0",
     "react-dom": ">=18.0.0 <20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
